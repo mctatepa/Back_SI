@@ -2,6 +2,19 @@
 
 <h1>Home</h1>
 
+<form action="#" method="post">
+        <input type="text" name="movie" placeholder="Movie" value="<?= $movie ?>">
+        <input type="submit">
+    </form>
+  <div>
+  <?php 
+  for ($i=0; $i < count($result->results); $i++) :
+    $title = $result->results[$i]->title
+  ?>
+  <div class='title'><?= $title ?></div>
+  <?php endfor;?>
+  </div>
+  
 <article>
     <h3>Article 1</h3>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae laudantium cupiditate veritatis explicabo aliquid ratione cumque, tempora itaque laboriosam repellendus ad, quidem ipsam, voluptate vel? Explicabo laborum eos quisquam aliquid.</p>
