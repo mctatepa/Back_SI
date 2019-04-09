@@ -51,15 +51,38 @@ else{
 }
 // Show result
 
-    // Decode JSON
-    $result = json_decode($result);
+// Decode JSON
+$result = json_decode($result);
+
+$genres = array(
+  28  => "Action",
+  16 => "Animation",
+  35 => "Comedy",
+  80 => "Crime",
+  99 => "Documentary",
+  18 => "Drama",
+  10751 => "Family",
+  27 => "Horror",
+  9648 => "Mystery",
+  36 => "History",
+  878 => "Science Fiction",
+  14 => "Fantasy",
+  53 => "Thriller",
+  10770 => "TV Movie",
+  10752 => "War",
+  37 => "Western",
+  10402 => "Music",
+  10749 => "Romance",
+  12 => "Adventure",
+);
+
+echo '<pre>';
+print_r($result);
+echo '</pre>';
 
   echo '<pre>';
-  print_r($result);
+  print_r($genres[$result->results[0]->genre_ids[0]]);
   echo '</pre>';
 
 
-echo '<pre>';
-print_r($url_image);
-echo '</pre>';
 include '../views/pages/home.php';
