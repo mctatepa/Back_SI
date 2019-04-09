@@ -14,7 +14,11 @@
   <div class='title'><?= $title ?></div>
   <?php endfor;?>
   </div>
-  
+  <?php
+  for ($e=0; $e < count($result->results); $e++): 
+    $path = $result->results[$e]->poster_path;
+    $url_image = "http://image.tmdb.org/t/p/w300/$path";      
+  ?><img src=<?=$url_image?> alt="what"><?php endfor;?>
 <article>
     <h3>Article 1</h3>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae laudantium cupiditate veritatis explicabo aliquid ratione cumque, tempora itaque laboriosam repellendus ad, quidem ipsam, voluptate vel? Explicabo laborum eos quisquam aliquid.</p>

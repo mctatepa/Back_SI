@@ -11,13 +11,8 @@ $movieUrl .= http_build_query([
   'api_key' => '0053c3d101416f34e0b7aba3d389596b',
   'language' => 'fr',
   'query' => urlencode($movie),
-  // 'page' => 1,
+  'page' => 1,
 ]);
-
-    echo '<pre>';
-    print_r($movieUrl);
-    echo '</pre>';
-
 
 
 //
@@ -32,10 +27,6 @@ $movieUrl2 = Unirest\Request::get("https://movie-database-imdb-alternative.p.rap
     "X-RapidAPI-Key" => "121e39e918mshbaf8ba77d175913p1ec8c6jsnd0dc695e72dd"
   )
 );
-
-    echo '<pre>';
-    print_r($movieUrl2);
-    echo '</pre>';
 
 // Create cache info
 $cacheKey = $movie;
@@ -63,7 +54,12 @@ else{
     // Decode JSON
     $result = json_decode($result);
 
-//   echo '<pre>';
-//   print_r($result);
-//   echo '</pre>';
+  echo '<pre>';
+  print_r($result);
+  echo '</pre>';
+
+
+echo '<pre>';
+print_r($url_image);
+echo '</pre>';
 include '../views/pages/home.php';
