@@ -18,9 +18,28 @@ $movieUrl .= http_build_query([
     print_r($movieUrl);
     echo '</pre>';
 
+
+
+//
+//  REQUEST IMDB (RAPIDAPI)
+//
+
+require_once '../unirest-php-master/src/Unirest.php';
+
+$movieUrl2 = Unirest\Request::get("https://movie-database-imdb-alternative.p.rapidapi.com/?s='./$movie/'",
+  array(
+    "X-RapidAPI-Host" => "movie-database-imdb-alternative.p.rapidapi.com",
+    "X-RapidAPI-Key" => "121e39e918mshbaf8ba77d175913p1ec8c6jsnd0dc695e72dd"
+  )
+);
+
+    echo '<pre>';
+    print_r($movieUrl2);
+    echo '</pre>';
+
 // Create cache info
 $cacheKey = $movie;
-$cachePath = './cache/'.$cacheKey;
+$cachePath = '../cache/'.$cacheKey;
 $cacheUsed = false;
 
 
