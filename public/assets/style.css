@@ -1,4 +1,15 @@
-body
-{
-    background: rgba(218, 165, 8, 0.863);
+.menu {
+    background: white;
 }
+
+.big-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.movies-infos {
+    display: flex;
+    flex-direction: row;
+    background: grey;
+}
+

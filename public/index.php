@@ -4,7 +4,7 @@
  * Configuration
  */
 
-define('URL', 'http://localhost:8888/Routing-2/public/');
+define('URL', 'http://localhost:8888/Back-end/Back_SI/');
 
 
 /**
@@ -27,10 +27,8 @@ if($q == 'home')
 else if($q == 'about-us' || $q == 'about')
 {
     $controller = 'about';
-}
-// else if(preg_match('/^article\/[0-9]+$/', $q)) n'importe quoi entre 0 et 9 le dollar veut dire : ça termine par (le + permet de gérer plusieurs digit)
-// commence par article puis un nombre
-else if(preg_match('/^article\/[1-9][0-9]*$/', $q)) // doit commencer par un chiffre de 1 à 9 et après à l'infini
+} 
+else if(preg_match('/^article\/[1-9][0-9]*$/', $q)) 
 {
     $controller = 'article';
 }
@@ -42,4 +40,6 @@ else
 
 // Include controller
 
+include '../views/partials/header.php';
 include '../controllers/'.$controller.'.php';
+include '../views/partials/footer.php';
