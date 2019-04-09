@@ -2,6 +2,11 @@
 
 $title = "Move'in";
 
+
+//
+// REQUEST TMDB 
+//
+
 // Get movies and use fight club as default
 $movie = empty($_POST['movie']) ? 'fight club' : $_POST['movie'];
 
@@ -97,6 +102,49 @@ foreach ($result->results as $_searches) {
   print_r($tmdbId);
   echo '</pre>';
 
+//
+// REQUEST TMDB 2
+//
+
+// Create API url
+$Imdb_Id = 'https://api.themoviedb.org/3/movie/550?';
+$Imdb_Id .= http_build_query([
+  'api_key' => '0053c3d101416f34e0b7aba3d389596b',
+]);
+
+// CACHE #3 IMDB ID
+
+// Create cache info
+$cacheKey3 = $movie;
+$cachePath3 = '../cache/cache_IMDBID/'.$cacheKey;
+$cacheUsed3 = false;
+
+
+if(file_exists($cachePath3) && time() - filemtime($cachePath3) < (60*60*24))
+{
+  $result3 = file_get_contents($cachePath3);
+  $cacheUsed3 = true;
+}
+else{
+  $curl = curl_init();
+  curl_setopt($curl, CURLOPT_URL, $Imdb_Id);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+  $result3 = curl_exec($curl);
+  curl_close($curl);
+
+  // Save in cache
+  file_put_contents($cachePath3, $result3);
+}
+// Show result
+
+    // Decode JSON
+    $result3 = json_decode($result3);
+
+$Imdb_Id = $result3->imdb_id;
+
+echo '<pre>';
+print_r($Imdb_Id);
+echo '</pre>';
 
 // GENDERS ID
 
@@ -126,9 +174,9 @@ echo '<pre>';
 print_r($result2);
 echo '</pre>';
 
-  echo '<pre>';
-  print_r($genres[$result->results[0]->genre_ids[0]]);
-  echo '</pre>';
+echo '<pre>';
+print_r($genres[$result->results[0]->genre_ids[0]]);
+echo '</pre>';
 
 
 include ('../allocine/PHP/search.php');
