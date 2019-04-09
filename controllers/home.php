@@ -81,6 +81,24 @@ else{
 $result2 = json_decode($result2);
 
 
+// Creation of the TMDB ID array
+
+$tmdbId = [];
+
+foreach ($result->results as $_searches) {
+  //Get the IMDB ID's
+  $TMDBID = $_searches->id;
+
+  //push IMDB ID's in array
+  $tmdbId[] = $TMDBID;
+}
+
+  echo '<pre>';
+  print_r($tmdbId);
+  echo '</pre>';
+
+
+// GENDERS ID
 
 $genres = array(
   28  => "Action",
