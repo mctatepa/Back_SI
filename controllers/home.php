@@ -113,4 +113,6 @@ echo '</pre>';
   echo '</pre>';
 
 
+include ('../allocine/PHP/search.php');
+
 include '../views/pages/home.php';
