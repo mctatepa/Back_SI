@@ -7,18 +7,18 @@
         <input type="submit">
     </form>
   <div>
-  <?php 
-  for ($i=0; $i < count($result->results); $i++) :
-    $title = $result->results[$i]->title
-  ?>
-  <div class='title'><?= $title ?></div>
-  <?php endfor;?>
+  <?php foreach ($result->results as $_results):?>
+    <div class="title"><?= $_results->title ?></div>
+  <?php endforeach; ?>
   </div>
-  <?php
-  for ($e=0; $e < count($result->results); $e++): 
-    $path = $result->results[$e]->poster_path;
-    $url_image = "http://image.tmdb.org/t/p/w300/$path";      
-  ?><img src=<?=$url_image?> alt="what"><?php endfor;?>
+
+<?php foreach ($result->results as $_results):
+    $path = $_results->poster_path;
+    $url_image = "http://image.tmdb.org/t/p/w300/$path";  
+?>
+<img src=<?=$url_image?> alt="what">
+<?php endforeach; ?>
+
 <article>
     <h3>Article 1</h3>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae laudantium cupiditate veritatis explicabo aliquid ratione cumque, tempora itaque laboriosam repellendus ad, quidem ipsam, voluptate vel? Explicabo laborum eos quisquam aliquid.</p>
