@@ -28,15 +28,14 @@ else if($q == 'about-us' || $q == 'about')
 {
     $controller = 'about';
 } 
-else if(preg_match('/^article\/[1-9][0-9]*$/', $q)) 
+else if(preg_match('/^movie/' , $q))
 {
-    $controller = 'article';
+    $controller = 'movie';
 }
 else
 {
     $controller = '404';
 }
-
 
 // Include controller
 

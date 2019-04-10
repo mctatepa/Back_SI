@@ -25,9 +25,12 @@
             <img src=<?=$url_image?> alt="what">
             
             <div class="infos">
+            <?php $movie_url = "movie=$title";
+            ?>
                 <div><?= $title ?></div>
                 <div><?= $overview ?></div>
                 <div><?= $release ?></div>
+                <a href=<?= urlencode($movie_url) ?>>test</a>
             </div>
         </div>
 
@@ -40,14 +43,12 @@
     $title = $_results->title;
     $overview = $_results->overview;
     $release = $_results->release_date;
-    $url_image = "http://image.tmdb.org/t/p/w300/$path";  
+    $url_image = "http://image.tmdb.org/t/p/w300/$path";
 ?>
 <?php endforeach; ?>
-
 <article>
-    <h3>Article 1</h3>
+    <h3>Movie page</h3>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae laudantium cupiditate veritatis explicabo aliquid ratione cumque, tempora itaque laboriosam repellendus ad, quidem ipsam, voluptate vel? Explicabo laborum eos quisquam aliquid.</p>
-    <a href="article/1">Read more</a>
 </article>
 
 <article>
