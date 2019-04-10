@@ -108,3 +108,9 @@ form {
     font-size: 3em;
     font-family: Helvetica, Arial, sans-serif;
 }
+
+.oui {
+    width: 600px;
+    height: 300px;
+    background: red;
+}

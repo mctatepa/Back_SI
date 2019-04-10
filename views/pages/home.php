@@ -1,3 +1,13 @@
+<link rel="stylesheet" href="<?= URL ?>assets/style.css">
+</head>
+<body>
+    <header>
+        <div class="movin">
+            <a href="<?= URL ?>home.php">Move'In</a>
+        </div>
+    </header>
+,
+
 <form action="#" method="post">
     <input type="text" name="movie" placeholder="Choose a movie sir !" value="<?= $movie ?>" class="text">
     <input type="submit" class="submit">
@@ -25,7 +35,7 @@
                 <a href=<?= $movie_url ?>>test</a>
             </div>
         </div>
-
+ :
         <?php endforeach; ?>
     </div>
 </div>
