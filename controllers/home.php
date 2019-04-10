@@ -146,6 +146,44 @@ echo '<pre>';
 print_r($Imdb_Id);
 echo '</pre>';
 
+
+//
+//  REQUEST IMDB (RAPIDAPI)
+//
+
+require_once '../unirest-php-master/src/Unirest.php';
+
+// Create cache info
+$cacheKey2 = $Imdb_Id;
+$cachePath2 = '../cache/cache_IMDB/'.$cacheKey2;
+$cacheUsed2 = false;
+
+
+if(file_exists($cachePath2) && time() - filemtime($cachePath2) < (60*60*24))
+{
+  $result_ratings = file_get_contents($cachePath2);
+  $result_ratings = json_decode($result_ratings);
+  $cacheUsed2 = true;
+}
+else{
+
+  $result_ratings = Unirest\Request::get("https://movie-database-imdb-alternative.p.rapidapi.com/?i=$Imdb_Id",
+  array(
+    "X-RapidAPI-Host" => "movie-database-imdb-alternative.p.rapidapi.com",
+    "X-RapidAPI-Key" => "121e39e918mshbaf8ba77d175913p1ec8c6jsnd0dc695e72dd"
+  )
+);
+
+  // Save in cache
+  file_put_contents($cachePath2, json_encode($result_ratings));
+}
+
+
+echo '<pre>';
+print_r($result_ratings->body->Ratings);
+echo '</pre>';
+
+
 // GENDERS ID
 
 $genres = array(
