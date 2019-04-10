@@ -4,7 +4,7 @@ $title = "Move'in";
 
 
 //
-// REQUEST TMDB 
+// REQUEST 1 TMDB 
 //
 
 // Get movies and use fight club as default
@@ -66,7 +66,7 @@ foreach ($result->results as $_searches) {
 
 
 //
-// REQUEST TMDB 2
+// REQUEST 2 TMDB 2
 //
 
 // Create API url
@@ -111,7 +111,7 @@ echo '</pre>';
 
 
 //
-//  REQUEST IMDB (RAPIDAPI)
+//  REQUEST 3 IMDB (RAPIDAPI)
 //
 
 require_once '../unirest-php-master/src/Unirest.php';
@@ -148,6 +148,44 @@ print_r($result_ratings->body->Ratings);
 echo '</pre>';
 
 
+//
+//  REQUEST 4 IMDB (RAPIDAPI)
+//
+
+require_once '../unirest-php-master/src/Unirest.php';
+
+// Create cache info
+$cacheKey4 = $Imdb_Id;
+$cachePath4 = '../cache/cache_Utelly/'.$cacheKey4;
+$cacheUsed4 = false;
+
+
+if(file_exists($cachePath4) && time() - filemtime($cachePath4) < (60*60*24))
+{
+  $locations = file_get_contents($cachePath4);
+  $locations = json_decode($locations);
+  $cacheUsed4 = true;
+}
+
+else{
+
+$locations = Unirest\Request::get("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term='./$movie/'",
+  array(
+    "X-RapidAPI-Host" => "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
+    "X-RapidAPI-Key" => "121e39e918mshbaf8ba77d175913p1ec8c6jsnd0dc695e72dd"
+  )
+);
+
+  // Save in cache
+  file_put_contents($cachePath4, json_encode($locations));
+}
+
+
+echo '<pre>';
+print_r($locations->body->results[0]->locations);
+echo '</pre>';
+
+
 // GENDERS ID
 
 $genres = array(
@@ -171,10 +209,6 @@ $genres = array(
   10749 => "Romance",
   12 => "Adventure",
 );
-
-echo '<pre>';
-print_r($result2);
-echo '</pre>';
 
 echo '<pre>';
 print_r($genres[$result->results[0]->genre_ids[0]]);
