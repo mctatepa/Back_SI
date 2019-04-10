@@ -48,44 +48,6 @@ else{
     $result = json_decode($result);
 
 
-//
-//  REQUEST IMDB (RAPIDAPI)
-//
-
-require_once '../unirest-php-master/src/Unirest.php';
-
-// Creation of the IMDB ID array
-
-$imdbId = [];
-
-// Create cache info
-$cacheKey2 = $movie;
-$cachePath2 = '../cache/cache_IMDB/'.$cacheKey2;
-$cacheUsed2 = false;
-
-
-if(file_exists($cachePath2) && time() - filemtime($cachePath2) < (60*60*24))
-{
-  $result2 = file_get_contents($cachePath2);
-  $cacheUsed2 = true;
-}
-else{
-
-  $result2 = Unirest\Request::get("https://movie-database-imdb-alternative.p.rapidapi.com/?s='./$movie/'",
-  array(
-    "X-RapidAPI-Host" => "movie-database-imdb-alternative.p.rapidapi.com",
-    "X-RapidAPI-Key" => "121e39e918mshbaf8ba77d175913p1ec8c6jsnd0dc695e72dd"
-  )
-);
-
-  $result2 = json_encode($result2);
-
-  // Save in cache
-  file_put_contents($cachePath2, $result2);
-}
-$result2 = json_decode($result2);
-
-
 // Creation of the TMDB ID array
 
 $tmdbId = [];
@@ -102,6 +64,7 @@ foreach ($result->results as $_searches) {
   print_r($tmdbId);
   echo '</pre>';
 
+
 //
 // REQUEST TMDB 2
 //
@@ -112,7 +75,7 @@ $Imdb_Id .= http_build_query([
   'api_key' => '0053c3d101416f34e0b7aba3d389596b',
 ]);
 
-// CACHE #3 IMDB ID
+// CACHE IMDB ID
 
 // Create cache info
 $cacheKey3 = $movie;
@@ -165,6 +128,7 @@ if(file_exists($cachePath2) && time() - filemtime($cachePath2) < (60*60*24))
   $result_ratings = json_decode($result_ratings);
   $cacheUsed2 = true;
 }
+
 else{
 
   $result_ratings = Unirest\Request::get("https://movie-database-imdb-alternative.p.rapidapi.com/?i=$Imdb_Id",
