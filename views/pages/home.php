@@ -17,8 +17,8 @@
             <img src=<?=$url_image?> alt="what">
             
             <div class="infos">
-            <?php $title = urlencode($title);
-            $movie_url = "movie=$title&id=$tmdbId[$movie_id]";
+            <?php $title_url = urlencode($title);
+            $movie_url = "movie&movie_name=$title_url&id=$tmdbId[$movie_id]";
             ?>
                 <div><?= $title ?></div>
                 <div><?= $overview ?></div>

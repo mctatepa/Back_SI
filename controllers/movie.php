@@ -1,13 +1,10 @@
 <?php
 $tmdb = $_GET['id']; 
+$movie = $_GET["movie_name"];
 
 echo '<pre>';
 print_r($tmdb);
 echo '</pre>';
-
-$title = 'Movie';
-$movie = empty($_POST['movie']) ? 'fight club' : $_POST['movie'];
-
 //
 // REQUEST 2 TMDB 2
 //
