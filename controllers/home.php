@@ -1,5 +1,6 @@
 <?php
 $title = "Move'in";
+$movie_id = 0;
 
 
 //
@@ -49,7 +50,9 @@ else{
 
 // Creation of the TMDB ID array
 
-$tmdbId = [];
+$tmdbId = [
+  0 => '',
+];
 
 foreach ($result->results as $_searches) {
   //Get the IMDB ID's

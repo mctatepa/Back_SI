@@ -7,21 +7,22 @@
     <div class="results">Your results :</div>
     <div class="line-container">
         <?php foreach ($result->results as $_results):
+            $movie_id += 1;
             $path = $_results->poster_path;
             $title = $_results->title;
             $overview = $_results->overview;
             $url_image = "http://image.tmdb.org/t/p/w300/$path";  
         ?>
-
         <div class="movies-infos">
             <img src=<?=$url_image?> alt="what">
             
             <div class="infos">
-            <?php $movie_url = "movie=$title";
+            <?php $title = urlencode($title);
+            $movie_url = "movie=$title&id=$tmdbId[$movie_id]";
             ?>
                 <div><?= $title ?></div>
                 <div><?= $overview ?></div>
-                <a href=<?= urlencode($movie_url) ?>>test</a>
+                <a href=<?= $movie_url ?>>test</a>
             </div>
         </div>
 

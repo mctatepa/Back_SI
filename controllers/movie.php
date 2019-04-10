@@ -1,8 +1,7 @@
 <?php
-
-$title = 'Movie '.$id;
+$tmdb = $_GET['id']; 
 
 echo '<pre>';
-print_r("test");
+print_r($tmdb);
 echo '</pre>';
 include '../views/pages/movie.php';
