@@ -1,7 +1,5 @@
 <?php
 
-
-
 $title = 'Movie '.$id;
 
 echo '<pre>';

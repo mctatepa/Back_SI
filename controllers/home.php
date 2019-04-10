@@ -59,9 +59,9 @@ foreach ($result->results as $_searches) {
   $tmdbId[] = $TMDBID;
 }
 
-  echo '<pre>';
+  /*echo '<pre>';
   print_r($tmdbId);
-  echo '</pre>';
+  echo '</pre>';*/
 
 
 //
@@ -104,9 +104,9 @@ else{
 
 $Imdb_Id = $result3->imdb_id;
 
-echo '<pre>';
+/*echo '<pre>';
 print_r($Imdb_Id);
-echo '</pre>';
+echo '</pre>';*/
 
 
 //
@@ -142,9 +142,9 @@ else{
 }
 
 
-echo '<pre>';
+/*echo '<pre>';
 print_r($result_ratings->body->Ratings);
-echo '</pre>';
+echo '</pre>';*/
 
 
 //
@@ -180,9 +180,9 @@ $locations = Unirest\Request::get("https://utelly-tv-shows-and-movies-availabili
 }
 
 
-echo '<pre>';
+/*echo '<pre>';
 print_r($locations->body->results[0]->locations);
-echo '</pre>';
+echo '</pre>';*/
 
 
 // GENDERS ID
