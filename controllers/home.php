@@ -104,13 +104,13 @@ $genres = array(
   12 => "Adventure",
 );
 
-echo '<pre>';
+/*echo '<pre>';
 print_r($result2);
 echo '</pre>';
 
   echo '<pre>';
   print_r($genres[$result->results[0]->genre_ids[0]]);
-  echo '</pre>';
+  echo '</pre>';*/
 
 
 include '../views/pages/home.php';
