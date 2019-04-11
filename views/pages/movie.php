@@ -84,17 +84,45 @@
     </div>
     <div class="comments">
         <h3>Comments</h3>
+        <?php 
+            if(isset($succes)): ?>
+                <div class="alert alert-success">
+                    <p><?= $succes ?></p>
+                </div>
+            <?php endif;
+            if(!empty($errors)):
+
+                foreach ($errors as $error): ?>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="alert alert-danger">
+                                <p><?= $error ?></p>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach;
+            endif; 
+        ?>
         <form action="#" method="post">
             <label for="author">Pseudo :</label>
             <br>
             <input class="text" type="text" name="author" id="author" value="<?php if(isset($author)) echo $author ?>" >
             <br>
-            <label for="comment">Commentaire :</label>
+            <label for="comment">Comment :</label>
             <br>
             <textarea name="comment" id="comment" cols="20" rows="5" class="form-control"><?php if(isset($comment)) echo $comment ?></textarea>
             <br>
             <button type="submit" class="btn btn-success">Envoyer</button>
         </form>
+        <div class="movie_comments">
+            <?php foreach ($comments as $comment): ?>
+                <div class="comments_text">
+                    <h3><?= $comment->author ?></h3>
+                    <time><?= $comment->date ?></time>
+                    <p><?= $comment->comment ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 
 <?php include '../views/partials/footer.php' ?>

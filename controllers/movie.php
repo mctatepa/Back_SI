@@ -1,14 +1,30 @@
 <?php
 include ('../allocine/PHP/allocine.class.php');
-$tmdb = $_GET['id']; 
+
 $movie = $_GET["movie_name"];
+
+if(!isset($_GET['id']) OR !is_numeric($_GET['id']))
+    {
+        header('Location: home.php'); 
+    }
+    else
+    {
+        extract($_GET);
+        $movieid = $_GET['id']; 
+        $movieid = strip_tags($movieid);
+        require_once('config/functions.php');
+        
+        require('config/form-handler.php');
+
+        $comments = getComments($movieid);
+    }
 
 //
 // REQUEST 2 TMDB 2
 //
 
 // Create API url
-$Imdb_Id = "https://api.themoviedb.org/3/movie/$tmdb?";
+$Imdb_Id = "https://api.themoviedb.org/3/movie/$movieid?";
 $Imdb_Id .= http_build_query([
   'api_key' => '0053c3d101416f34e0b7aba3d389596b',
 ]);
