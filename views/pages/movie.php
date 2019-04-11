@@ -4,6 +4,11 @@
 <link rel="stylesheet" href="public/assets/movie.css">  
 </head>
 <body>
+<header>
+        <div class="movin">
+            <a href="<?= URL ?>home">Move'In</a>
+        </div>
+    </header>
     <div class="movie_details">
         <img src=<?= $img_url ?>  alt="" class="poster">
         <div class="details">
