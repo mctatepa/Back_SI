@@ -94,8 +94,4 @@ $genres = array(
  print_r($result2);
  echo '</pre>';*/
 
-
-
-include ('../allocine/PHP/search.php');
-
 include '../views/pages/home.php';
