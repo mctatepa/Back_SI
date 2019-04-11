@@ -41,7 +41,7 @@ a {
 }
 
 .big-container {
-   margin-top: 20%;
+   margin-top: 15%;
 }
 
 .line-container {
@@ -50,7 +50,7 @@ a {
 }
 
 .movies-infos {
-    margin: 2% 4%;
+    margin: 2% 5%;
     width: 40%;
     height: 40%;
     display: flex;
@@ -59,8 +59,8 @@ a {
 }
 
 .infos {
-    width: 40%;
-    margin-left: 3%;
+    width: 85%;
+    margin-left: 7.5%;
 }
 
 form {
@@ -71,41 +71,83 @@ form {
 }
 
 .text {
-    width: 40%;
-    height: 50px;
+    width: 55%;
+    height: 35px;
+    font-size: 3em;
+    text-align: center;
+    font-family: STHeitiSC-Light;
+    color: black;
+    letter-spacing: 0.01px;
 }
 
-.text::placeholder {
-    font-size: 1.5em;
-    margin-left: 10%;
-}
-
-.submit {
-    margin-left: 20px;
-    width: 5%;
-}
-
-.title, .release, .overview {
-    font-family: 'Raleway ExtraLight', arial; 
+.title, .overview, .see-more {
+    font-family: STHeitiSC-Light;
+    letter-spacing: 0.01px;
 }
 
 .overview {
     color: #373737;
     font-size: 0.8em;
     margin-bottom: 20px;
+    line-height: 1.5em;
 }
 
 .title {
     margin-bottom: 4%;
     margin-top: 6%;
+    font-size: 2em;
 }
 
 .see-more {
-    color: #373737;
+    color: #B50000;
+    top: 80%;
 }
 
 .results {
-    margin-left: 8%;
+    margin-left: 5%;
     font-size: 3em;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: STHeitiSC-Light;
+    color: #1D1D1D;
+    letter-spacing: 0.01px;
 }
+
+#on {
+    display: none;
+    transition: ease-in-out 0.5s;
+    width: 256px;
+}
+
+#on img {
+    position: absolute;
+    width: 256px;
+    height: 118px;
+}
+
+.off {
+    transition: ease-in-out 0.5s;
+}
+
+.submit {
+    position: relative;
+    cursor: pointer;
+    width: 256px;
+    opacity: 0;
+}
+
+.align-button {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around flex-end;
+}
+
+.see-button {
+    width: 100%;
+    height: 4.5%;
+}
+
+.see-button a {
+    margin-left: 7.5%;
+}
+
+
