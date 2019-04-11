@@ -210,7 +210,6 @@ function calcul_average_grade($Grades){
     return
         $average_grade = number_format((float)$average_grade, 2, '.', '');
 }
-if (!empty($result_ratings->feed->results)) {
     $img_url = $result_ratings->body->Poster;
     $handle = curl_init($img_url);
     curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
@@ -221,9 +220,6 @@ if (!empty($result_ratings->feed->results)) {
     }
     curl_close($handle);
     $handle = $img_url;
-}else{
-    $img_url = "public/assets/images/poster_placeholder.png";
-}
 
 
 
