@@ -4,7 +4,7 @@
  * Configuration
  */
 
-define('URL', 'http://localhost:8888/Back_SI/');
+define('URL', 'http://localhost:8888/Back-end/Back_SI/');
 
 
 /**

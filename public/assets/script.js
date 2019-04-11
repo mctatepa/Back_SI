@@ -11,8 +11,6 @@ input.addEventListener('input', () => {
         on.style.display = "none"
         off.style.display = "block"
         submit.style.display = "block"
-        form.style.display = "flex"
-        form.style.flexDirection = "column"
     } else {
         on.style.display = "block"
         off.style.display = "none"

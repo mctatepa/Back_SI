@@ -14,7 +14,7 @@ $movie = empty($_POST['movie']) ? 'fight club' : $_POST['movie'];
 $movieUrl = 'https://api.themoviedb.org/3/search/movie?';
 $movieUrl .= http_build_query([
   'api_key' => '0053c3d101416f34e0b7aba3d389596b',
-  'language' => 'en',
+  'language' => 'fr',
   'query' => urlencode($movie),
   'page' => 1,
 ]);
@@ -93,5 +93,4 @@ $genres = array(
 /* echo '<pre>';
  print_r($result2);
  echo '</pre>';*/
-
 include '../views/pages/home.php';

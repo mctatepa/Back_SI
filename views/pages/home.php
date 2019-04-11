@@ -4,7 +4,7 @@
 <body>
     <header>
         <div class="movin">
-            <a href="<?= URL ?>home.php">Move'In</a>
+            <a href="<?= URL ?>home">Move'In</a>
         </div>
     </header>
 
@@ -19,9 +19,6 @@
     </div>
 </form>
 
-
-
-
 <div class="big-container">
     <div class="results">Your results :</div>
     <div class="line-container">
@@ -31,6 +28,7 @@
             $title = $_results->title;
             if (!empty($_results->overview)) {
                 $overview = $_results->overview;
+                $substr = substr($overview, 0, 650);
                }
                else{
                  $overview = "Plus d'info sur la page";
@@ -45,26 +43,32 @@
         <div class="movies-infos">
             <img class="poster" src=<?=$url_image?> alt="what">
             
-            <div class="infos">
-<<<<<<< HEAD
-                <?php $title_url = urlencode($title);
-                $movie_url = "movie&movie_name=$title_url&id=$tmdbId[$movie_id]";
-                ?>
-                <div><?= $title ?></div>
-                <div><?= $overview ?></div>
-=======
-            <?php $title_url = urlencode($title);
-            $movie_url = "movie&movie_name=$title_url&id=$tmdbId[$movie_id]";
-            ?>
-                <h2 class="title"><?= $title ?></h2>
-                <div class="overview"><?= $overview ?></div>
->>>>>>> db6fbc935dc3cc27d091b08392b8ab703c16f16d
-                <a href=<?= $movie_url ?>>test</a>
+            <div class="align-button">
+                <div class="infos">
+                    <?php $title_url = urlencode($title);
+                    $movie_url = "movie&movie_name=$title_url&id=$tmdbId[$movie_id]";
+                    ?>
+                    <div class="title"><?= $title ?></div>
+                    <div class="overview"><?php $substr; 
+                    if (strlen($overview) > 650) {
+                        $substr .= "...";
+                        echo($substr);
+                    } else {
+                        echo($overview);
+                    }
+                    ?></div>
+                </div>
+
+                <div class="see-button">
+                    <a href=<?= $movie_url ?> class="see-more">See more</a>
+                </div>
             </div>
+
+            
         </div>
- :
         <?php endforeach; ?>
     </div>
 </div>
 
 <script src="./public/assets/script.js"></script>
+
