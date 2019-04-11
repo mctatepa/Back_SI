@@ -4,6 +4,11 @@
 <link rel="stylesheet" href="public/assets/movie.css">  
 </head>
 <body>
+<header>
+        <div class="movin">
+            <a href="<?= URL ?>home">Move'In</a>
+        </div>
+    </header>
     <div class="movie_details">
         <img src=<?= $img_url ?>  alt="" class="poster">
         <div class="details">
@@ -26,7 +31,7 @@
             </div>
             <div class="cast">
                 <div class="actors">
-                    <h3>Actors</h3>
+                    <h3>Casting</h3>
                     <div class="actor_list">
                             <span><?= $Actors ?></span>
                     </div>
@@ -112,7 +117,7 @@
             <br>
             <textarea name="comment" id="comment" cols="20" rows="5" class="form-control"><?php if(isset($comment)) echo $comment ?></textarea>
             <br>
-            <button type="submit" class="btn btn-success">Envoyer</button>
+            <button type="submit" class="btn btn-success">Sent</button>
         </form>
         <div class="movie_comments">
             <?php foreach ($comments as $comment): ?>
@@ -122,6 +127,19 @@
                     <p><?= $comment->comment ?></p>
                 </div>
             <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="recommandations">
+        <h3>Recommandations</h3>
+        <span>Here are some recommandations</span>
+        <div class="posters">
+            <?php for ($i=0; $i <= 3; $i++) :
+                    $reco_path = $recommandation->results[$i]->poster_path;
+                    $poster = "http://image.tmdb.org/t/p/w300/$reco_path"; ?>
+                <div class="poster">
+                    <img  src="<?= $poster ?>" alt="Recommandation poster">
+                </div>
+            <?php endfor; ?>
         </div>
     </div>
 

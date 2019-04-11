@@ -64,8 +64,6 @@
                     <a href=<?= $movie_url ?> class="see-more">Discover</a>
                 </div>
             </div>
-
-            
         </div>
         <?php endforeach; ?>
     </div>

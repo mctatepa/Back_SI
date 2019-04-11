@@ -3,6 +3,21 @@ body{
     margin: 0px;
 }
 
+/** HEADER **/
+
+header .movin{
+    margin-left: 8%;
+    margin-top: 2%;
+}
+
+header .movin a{
+    color: black;
+    font-family: Lombok;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+
 /** MOVIE DETAILS **/
 
 .movie_details{
@@ -12,7 +27,7 @@ body{
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .movie_details .details{
@@ -291,7 +306,7 @@ body{
     margin-left: 8%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .rating_location .location .locations_name{
@@ -376,4 +391,44 @@ footer {
 
 .links {
     text-align: center;
+}
+/** RECOMMANDATIONS **/
+
+.recommandations{
+    width: 85vw;
+    margin: 3% auto;
+    padding-bottom: 2%;
+    background: white;
+}
+
+.recommandations h3{
+    font-family: STHeitiSC-Light;
+    font-size: 37px;
+    color: #333232;
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 2% 0 0 1%;
+}
+
+.recommandations span{
+    padding: 0 0 0 1%;
+}
+
+.recommandations .posters{
+    width: 100%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.recommandations .posters .poster{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recommandations .posters .poster img{
+    width: 70%;
 }

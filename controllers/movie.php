@@ -139,6 +139,30 @@ $result_allocine = $allocine->search($movie);
 $result_allocine = json_decode($result_allocine);
 
 
+//
+// REQUEST 5  RECOMMANDATIONS
+//
+
+
+// Create API url
+$recommandationURL = "https://api.themoviedb.org/3/movie/$movieid/recommendations?";
+$recommandationURL .= http_build_query([
+  'api_key' => '0053c3d101416f34e0b7aba3d389596b',
+]);
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $recommandationURL);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+$recommandation = curl_exec($curl);
+curl_close($curl);
+
+// Show result
+
+// Decode JSON
+$recommandation = json_decode($recommandation);
+
+
+
 
 
 // $imdb_grade = ((int) filter_var($result_ratings->body->Ratings[0]->Value, FILTER_SANITIZE_NUMBER_INT)/1000);
@@ -167,10 +191,6 @@ if (empty($result_ratings->result)) {
 }else{
     $allocine_grade = $result_allocine->feed->movie[0]->statistics->pressRating + $result_allocine->feed->movie[0]->statistics->userRating;
 }
-
-echo '<pre>';
-print_r($result_ratings);
-echo '</pre>';
 
 $Grades = array(
     0 => $imdb_grade,
