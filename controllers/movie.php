@@ -123,20 +123,79 @@ $result_allocine = $allocine->search($movie);
 $result_allocine = json_decode($result_allocine);
 
 
-// echo '<pre>';
-// print_r($locations->body->results[0]->locations);
-// echo '</pre>';
 
 
-$imdb_grade = ((int) filter_var($result_ratings->body->Ratings[0]->Value, FILTER_SANITIZE_NUMBER_INT)/1000);
-$rotten_grade = ((int) filter_var($result_ratings->body->Ratings[1]->Value, FILTER_SANITIZE_NUMBER_INT)/10);
-$metascore_grade = ((int) filter_var($result_ratings->body->Ratings[2]->Value, FILTER_SANITIZE_NUMBER_INT)/10000);
-$allocine_grade = $result_allocine->feed->movie[0]->statistics->pressRating + $result_allocine->feed->movie[0]->statistics->userRating;
-$average_grade = ($allocine_grade + $imdb_grade - 0.01 + $rotten_grade + $metascore_grade - 0.01)/4;
+// $imdb_grade = ((int) filter_var($result_ratings->body->Ratings[0]->Value, FILTER_SANITIZE_NUMBER_INT)/1000);
+// $rotten_grade = ((int) filter_var($result_ratings->body->Ratings[1]->Value, FILTER_SANITIZE_NUMBER_INT)/10);
+// $metascore_grade = ((int) filter_var($result_ratings->body->Ratings[2]->Value, FILTER_SANITIZE_NUMBER_INT)/10000);
+// $allocine_grade = $result_allocine->feed->movie[0]->statistics->pressRating + $result_allocine->feed->movie[0]->statistics->userRating;
+// $average_grade = ($allocine_grade + $imdb_grade - 0.01 + $rotten_grade + $metascore_grade - 0.01)/4;
+
+if (empty($result_ratings->body->Ratings[2])) {
+    $metascore_grade = 0;
+}else{
+    $metascore_grade = ((int) filter_var($result_ratings->body->Ratings[2]->Value, FILTER_SANITIZE_NUMBER_INT)/10000);
+}
+if (empty($result_ratings->body->Ratings[1])) {
+    $rotten_grade = 0;
+}else{
+    $rotten_grade = ((int) filter_var($result_ratings->body->Ratings[1]->Value, FILTER_SANITIZE_NUMBER_INT)/10);
+}
+if (empty($result_ratings->body->Ratings[0])) {
+    $imdb_grade  = 0;
+}else{
+    $imdb_grade = ((int) filter_var($result_ratings->body->Ratings[0]->Value, FILTER_SANITIZE_NUMBER_INT)/1000);
+}
+if (empty($result_ratings->body->Ratings[0])) {
+    $allocine_grade  = 0;
+}else{
+    $allocine_grade = $result_allocine->feed->movie[0]->statistics->pressRating + $result_allocine->feed->movie[0]->statistics->userRating;
+}
+
+$Grades = array(
+    0 => $imdb_grade,
+    1 => $allocine_grade,
+    2 => $rotten_grade,
+    3 => $metascore_grade,
+);
+
+$Grades = array_filter($Grades); // removing blank, null, false, 0 (zero) values
+
+function calcul_average_grade($Grades){
+    $average_grade = 0;
+    foreach ($Grades as $_Grade) {
+        $average_grade += $_Grade;
+    }
+    $average_grade = $average_grade/count($Grades);
+    return
+        $average_grade = number_format((float)$average_grade, 2, '.', '');
+}
+$img_url = $result_ratings->body->Poster;
+
+
+$average_grade = calcul_average_grade($Grades);
+
+if (empty($result_ratings->body)) {
+    $Director = "unavailable";
+$Actors = "unavailable";
+$Date = "unavailable";
+$Genres = "unavailable";
+$Plot = "unavailable";
+}else{
 $Director = $result_ratings->body->Director;
 $Actors = $result_ratings->body->Actors;
 $Date = $result_ratings->body->Released;
 $Genres = $result_ratings->body->Genre;
+$Plot = $result_ratings->body->Plot;
+}
+
+if (empty($locations->body->results)) {
+    $locations = array ();
+}else{
+    $locations = $locations->body->results[0]->locations;
+}
+// Use preg_split() function 
+$Genres = preg_split ("/\,/", $Genres);
 
 
 

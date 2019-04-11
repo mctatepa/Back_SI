@@ -285,13 +285,13 @@ body{
 }
 
 .rating_location .location .locations{
-    width: 80%;
+    width: 40%;
     height: 100%;
-    margin-top: 8%;
-    margin-left: 8%;
+    margin: 5%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .rating_location .location .locations_name{
@@ -300,7 +300,6 @@ body{
     border-radius: 10px;
     padding-left: 5%;
     display: flex;
-    flex-direction: row;
     align-items: center;
     background: rgb(65, 47, 57);
     color: white;

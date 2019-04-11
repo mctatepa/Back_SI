@@ -5,39 +5,35 @@
 </head>
 <body>
     <div class="movie_details">
-        <img src="public/assets/images/poster.png" alt="" class="poster">
+        <img src=<?= $img_url ?>  alt="" class="poster">
         <div class="details">
             <div class="title">
                 <h2><?= $movie ?></h2>
-                <span class="date">2018/01/29</span>
+                <span class="date"><?= $Date?></span>
             </div>
             <div class="gender">
-                <?php foreach ($result_ratings->body->Ratings as $_results):
-                    $genderID = $_results->Value
+                <?php foreach ($Genres as $_Genres):
+                    $gender = $_Genres
                 ?>
                 <div class="gender_style">
-                    <span><?= $genderID ?></span>
+                    <span><?= $gender ?></span>
                 </div>
                 <?php endforeach ?>
             </div>
             <div class="synopsis">
                 <h3>Synopsis</h3>
-                <p>King T'Challa returns home from America to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne by factions within</p>
+                <p><?= $Plot ?></p>
             </div>
             <div class="cast">
                 <div class="actors">
                     <h3>Actors</h3>
                     <div class="actor_list">
-                        <?php foreach ($result_ratings->body->Ratings as $_results):
-                            $actor_name = $_results->Value
-                        ?>
-                            <span><?= $actor_name ?></span>
-                        <?php endforeach ?>
+                            <span><?= $Actors ?></span>
                     </div>
                 </div>
                 <div class="director">
                     <h3>Director</h3>
-                    <span><?= $result_ratings->body->Production ?></span>
+                    <span><?= $Director ?></span>
                 </div>
             </div>
         </div>
@@ -47,40 +43,40 @@
             <div class="average">
                 <h3>Ratings</h3>
                 <div class="average_score">
-                    <span>8/10</span>
+                    <span><?= $average_grade?></span>
                 </div>
             </div>
             <div class="rating_detail">
                 <div class="rating_row row1">
                     <div class="logo"><img src="public/assets/images/IMDB.png" alt=""></div>
                     <span class="title">IMDB :</span>
-                    <span class="score">9 / 10</span>
+                    <span class="score"><?= $imdb_grade ?></span>
                 </div>
                 <div class="rating_row row2">
                     <div class="logo"><img src="public/assets/images/tomatoes.png" alt=""></div>
                     <span class="title">Rotten tomatoes :</span>
-                    <span class="score">8,3 / 10</span>
+                    <span class="score"><?= $rotten_grade ?></span>
                 </div>
                 <div class="rating_row row3">
                     <div class="logo"><img src="public/assets/images/allocine.png" alt=""></div>
                     <span class="title">Allocine :</span>
-                    <span class="score">6,9 / 10</span>
+                    <span class="score"><?= $allocine_grade ?></span>
                 </div>
                 <div class="rating_row row4">
                     <div class="logo"><img src="public/assets/images/metacritic.png" alt=""></div>
                     <span class="title">Metacritic :</span>
-                    <span class="score">7,3 / 10</span>
+                    <span class="score"><?= $metascore_grade ?></span>
                 </div>
             </div>
         </div>
         <div class="location">
             <h3>Where to find it</h3>
             <div class="locations">
-                <?php foreach ($result_ratings->body->Ratings as $_results):
-                        $genderID = $_results->Value
+                <?php foreach ($locations as $_locations):
+                        $location = $_locations->display_name
                     ?>
                     <div class="locations_name">
-                        <span><?= $genderID ?></span>
+                        <span><?= $location ?></span>
                     </div>
                 <?php endforeach ?>
             </div>

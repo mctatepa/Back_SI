@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="<?= URL ?>assets/reset.css">
 <link rel="stylesheet" href="<?= URL ?>assets/style.css">
 </head>
 <body>
@@ -7,16 +6,11 @@
             <a href="<?= URL ?>home">Move'In</a>
         </div>
     </header>
+,
 
-<form action="#" method="post" class="form">
-    <input type="text" name="movie" value="<?= $movie ?>" class="text" id="movie-input" autofocus="true">
-    <img src="./public/assets/images/search_off.png" alt="#" id="off">
-    <div class="solution">
-        <a id="on" type="submit">
-            <img src="./public/assets/images/search_on.png" alt="#">
-            <input type="submit" class="submit">
-        </a>
-    </div>
+<form action="#" method="post">
+    <input type="text" name="movie" placeholder="Choose a movie sir !" value="<?= $movie ?>" class="text">
+    <input type="submit" class="submit">
 </form>
 
 <div class="big-container">
