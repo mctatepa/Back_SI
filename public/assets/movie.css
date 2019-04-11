@@ -378,3 +378,45 @@ header .movin a{
 .col-md-6{
     margin-left: 1%;
 }
+
+
+/** RECOMMANDATIONS **/
+
+.recommandations{
+    width: 85vw;
+    margin: 3% auto;
+    padding-bottom: 2%;
+    background: white;
+}
+
+.recommandations h3{
+    font-family: STHeitiSC-Light;
+    font-size: 37px;
+    color: #333232;
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 2% 0 0 1%;
+}
+
+.recommandations span{
+    padding: 0 0 0 1%;
+}
+
+.recommandations .posters{
+    width: 100%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.recommandations .posters .poster{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recommandations .posters .poster img{
+    width: 70%;
+}
