@@ -45,7 +45,6 @@
                 <a href=<?= $movie_url ?>>test</a>
             </div>
         </div>
- :
         <?php endforeach; ?>
     </div>
 </div>
