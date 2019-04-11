@@ -28,6 +28,7 @@ a {
 .movin a {
     color: white;
     font-size: 2em;
+    font-family: 'Fascinate Inline', cursive;
 }
 
 .big-container {
@@ -91,9 +92,36 @@ form {
     font-size: 2em;
 }
 
-.see-more {
+.align-button {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.see-button {
+    background: #B50000;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    transition: ease-in-out 0.5s;
+}
+
+.see-button:hover {
+    background: white;
+}
+
+.see-button:hover a {
     color: #B50000;
-    top: 80%;
+    text-transform: uppercase;
+}
+
+.see-button a {
+    margin-left: 7.5%;
+    color: white;
+    transition: ease-in-out 0.5s;
+    text-transform: uppercase;
 }
 
 .results {
@@ -127,29 +155,13 @@ form {
     opacity: 0;
 }
 
-.align-button {
-    width: 85%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around flex-end;
-}
-
-.see-button {
-    width: 100%;
-    height: 4.5%;
-}
-
-.see-button a {
-    margin-left: 7.5%;
-}
-
 footer {
     background: black;
     width: 100%;
-    height: 77px;
-    margin-bottom: 0;
-    margin-right: 0;
-    margin-left: 0;
+    height: 90px;
+    margin-top: 20px;
 }
 
-
+.links {
+    text-align: center;
+}

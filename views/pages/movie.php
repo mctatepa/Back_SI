@@ -140,4 +140,3 @@
         </div>
     </div>
 
-<?php include '../views/partials/footer.php' ?>
