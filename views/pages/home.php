@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<?= URL ?>assets/reset.css">
 <link rel="stylesheet" href="<?= URL ?>assets/style.css">
 </head>
 <body>

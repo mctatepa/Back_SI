@@ -1,8 +1,12 @@
+@font-face {
+    font-family: Lombok;
+    src: url(./fonts/Lombok.otf);
+}
+    
 body {
     background: url(./images/last.png);
     background-size: contain;
     background-repeat: no-repeat;
-    margin: 0;
 }
 
 a {
@@ -22,21 +26,7 @@ a {
 
 .movin a {
     color: white;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 2em;
-}
-
-.tools {
-    display: flex;
-    flex-direction: row;
-    margin-right: 16%;
-    margin-top: 2%;
-}
-
-.tools a {
-    color: white;
-    margin-right: 20%;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Lombok;
     font-size: 2em;
 }
 
@@ -65,9 +55,10 @@ a {
 
 form {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 32.5%;
+    margin-top: 29.3%;
 }
 
 .text {
