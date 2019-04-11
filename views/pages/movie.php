@@ -124,5 +124,18 @@
             <?php endforeach; ?>
         </div>
     </div>
+    <div class="recommandations">
+        <h3>Recommandations</h3>
+        <span>Here are some recommandations</span>
+        <div class="posters">
+            <?php for ($i=0; $i <= 3; $i++) :
+                    $reco_path = $recommandation->results[$i]->poster_path;
+                    $poster = "http://image.tmdb.org/t/p/w300/$reco_path"; ?>
+                <div class="poster">
+                    <img  src="<?= $poster ?>" alt="Recommandation poster">
+                </div>
+            <?php endfor; ?>
+        </div>
+    </div>
 
 <?php include '../views/partials/footer.php' ?>
