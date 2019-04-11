@@ -1,4 +1,5 @@
 <?php
+include ('../allocine/PHP/allocine.class.php');
 $tmdb = $_GET['id']; 
 $movie = $_GET["movie_name"];
 
@@ -25,25 +26,25 @@ $cacheUsed3 = false;
 
 if(false && file_exists($cachePath3) && time() - filemtime($cachePath3) < (60*60*24))
 {
-  $result3 = file_get_contents($cachePath3);
+  $result_tmdb = file_get_contents($cachePath3);
   $cacheUsed3 = true;
 }
 else{
   $curl = curl_init();
   curl_setopt($curl, CURLOPT_URL, $Imdb_Id);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-  $result3 = curl_exec($curl);
+  $result_tmdb = curl_exec($curl);
   curl_close($curl);
 
   // Save in cache
-  file_put_contents($cachePath3, $result3);
+  file_put_contents($cachePath3, $result_tmdb);
 }
 // Show result
 
     // Decode JSON
-    $result3 = json_decode($result3);
+    $result_tmdb = json_decode($result_tmdb);
 
-$Imdb_Id = $result3->imdb_id;
+$Imdb_Id = $result_tmdb->imdb_id;
 
 echo '<pre>';
 print_r($Imdb_Id);
@@ -83,9 +84,6 @@ else{
 }
 
 
-echo '<pre>';
-print_r($result_ratings->body->Ratings);
-echo '</pre>';
 
 
 //
@@ -121,12 +119,41 @@ $locations = Unirest\Request::get("https://utelly-tv-shows-and-movies-availabili
 }
 
 
-echo '<pre>';
-print_r($locations->body->results[0]->locations);
-echo '</pre>';
+
+define('ALLOCINE_PARTNER_KEY', '100043982026');
+define('ALLOCINE_SECRET_KEY', '29d185d98c984a359e6e6f26a0474269');
+
+$allocine = new Allocine(ALLOCINE_PARTNER_KEY, ALLOCINE_SECRET_KEY);
+
+$result_allocine = $allocine->search($movie);
+$result_allocine = json_decode($result_allocine);
 
 
+// echo '<pre>';
+// print_r($locations->body->results[0]->locations);
+// echo '</pre>';
+
+
+$imdb_grade = ((int) filter_var($result_ratings->body->Ratings[0]->Value, FILTER_SANITIZE_NUMBER_INT)/1000);
+$rotten_grade = ((int) filter_var($result_ratings->body->Ratings[1]->Value, FILTER_SANITIZE_NUMBER_INT)/10);
+$metascore_grade = ((int) filter_var($result_ratings->body->Ratings[2]->Value, FILTER_SANITIZE_NUMBER_INT)/10000);
+$allocine_grade = $result_allocine->feed->movie[0]->statistics->pressRating + $result_allocine->feed->movie[0]->statistics->userRating;
+$average_grade = ($allocine_grade + $imdb_grade - 0.01 + $rotten_grade + $metascore_grade - 0.01)/4;
+$Director = $result_ratings->body->Director;
+$Actors = $result_ratings->body->Actors;
+$Date = $result_ratings->body->Released;
+$Genres = $result_ratings->body->Genre;
+
 echo '<pre>';
-print_r("test");
+print_r($result_ratings);
 echo '</pre>';
+echo '<pre>';
+print_r($result_tmdb);
+echo '</pre>';
+
+echo '<pre>';
+print_r($average_grade);
+echo '</pre>'; 
+
+
 include '../views/pages/movie.php';

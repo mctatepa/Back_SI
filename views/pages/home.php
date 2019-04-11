@@ -24,7 +24,7 @@
                 $overview = $_results->overview;
                }
                else{
-                 $overview = "pas de overview";
+                 $overview = "Plus d'info sur la page";
                }
                if (!empty($path)) {
                 $url_image = "http://image.tmdb.org/t/p/w300/$path";
