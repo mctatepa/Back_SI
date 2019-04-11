@@ -285,13 +285,13 @@ body{
 }
 
 .rating_location .location .locations{
-    width: 40%;
+    width: 80%;
     height: 100%;
-    margin: 5%;
+    margin-top: 8%;
+    margin-left: 8%;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .rating_location .location .locations_name{
@@ -300,6 +300,7 @@ body{
     border-radius: 10px;
     padding-left: 5%;
     display: flex;
+    flex-direction: row;
     align-items: center;
     background: rgb(65, 47, 57);
     color: white;
@@ -309,10 +310,7 @@ body{
 
 .comments{
     width: 85vw;
-    height: 100vh;
     margin: 3% auto;
-    display: flex;
-    flex-direction: column;
     background: white;
 }
 
@@ -327,17 +325,41 @@ body{
 
 .comments form{
     width: 100%;
-    height: 35%;
-    background: grey;
-    padding: 0% 2%;
+    height: 42%;
+    background: #F4F4F4;
+    padding: 2%;
+    border: 10px solid white;
+    border-radius: 15px;
 }
 
 .comments form .text{
     border-radius: 5px;
-    border: 1px;
+    border: 1px solid #80808059;
     padding: 0.5%;
 }
 
 .comments form label{
     margin-top: 1%;
+}
+
+.comments .movie_comments{
+    padding: 2%;
+}
+
+.comments .movie_comments .comments_text{
+    width: 80%;
+    padding: 2%;
+}
+
+.comments .movie_comments .comments_text h3{
+    margin: 0;
+    padding: 0;
+}
+
+.comments .movie_comments .comments_text p{
+    margin-top: 2%;
+}
+
+.col-md-6{
+    margin-left: 1%;
 }
