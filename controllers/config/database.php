@@ -1,8 +1,8 @@
 <?php 
 
 define('DB_HOST', 'localhost');
-define('DB_PORT', '8889');
-define('DB_NAME', "Move'in");
+define('DB_PORT', '8888');
+define('DB_NAME', "Movin");
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
 

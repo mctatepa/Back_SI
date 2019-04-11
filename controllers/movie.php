@@ -186,7 +186,7 @@ if (empty($result_ratings->body->Ratings[0])) {
 }else{
     $imdb_grade = ((int) filter_var($result_ratings->body->Ratings[0]->Value, FILTER_SANITIZE_NUMBER_INT)/1000);
 }
-if (empty($result_ratings->result)) {
+if (empty($result_allocine->feed->movie[0]->statistics)) {
     $allocine_grade  = 0;
 }else{
     $allocine_grade = $result_allocine->feed->movie[0]->statistics->pressRating + $result_allocine->feed->movie[0]->statistics->userRating;
@@ -210,7 +210,21 @@ function calcul_average_grade($Grades){
     return
         $average_grade = number_format((float)$average_grade, 2, '.', '');
 }
-$img_url = $result_ratings->body->Poster;
+if (!empty($result_ratings->feed->results)) {
+    $img_url = $result_ratings->body->Poster;
+    $handle = curl_init($img_url);
+    curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+    $response = curl_exec($handle);
+    $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+    if($httpCode == 404 || $httpCode == 403) {
+        $img_url = "public/assets/images/poster_placeholder.png";
+    }
+    curl_close($handle);
+    $handle = $img_url;
+}else{
+    $img_url = "public/assets/images/poster_placeholder.png";
+}
+
 
 
 $average_grade = calcul_average_grade($Grades);
@@ -238,5 +252,18 @@ if (empty($locations->body->results)) {
 $Genres = preg_split ("/\,/", $Genres);
 
 
+if(empty($recommandation->results)){
+    $recommandations = array(
+        0 => "public/assets/images/poster_placeholder.png",
+        1 => "public/assets/images/poster_placeholder.png",
+        2 => "public/assets/images/poster_placeholder.png",
+        3 => "public/assets/images/poster_placeholder.png",
+      );
+}else{
+    for ($i=0; $i <= 3; $i++){
+        $reco_path = $recommandation->results[$i]->poster_path;
+        $recommandations [] = "http://image.tmdb.org/t/p/w300/$reco_path";        
+    }
+}
 
 include '../views/pages/movie.php';

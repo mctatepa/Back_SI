@@ -6,7 +6,7 @@
 <body>
 <header>
         <div class="movin">
-            <a href="<?= URL ?>home">Move'In</a>
+            <a href="<?= URL ?>home">Mov'In</a>
         </div>
     </header>
     <div class="movie_details">
@@ -96,7 +96,6 @@
                 </div>
             <?php endif;
             if(!empty($errors)):
-
                 foreach ($errors as $error): ?>
                     <div class="row">
                         <div class="col-md-6">
@@ -117,7 +116,7 @@
             <br>
             <textarea name="comment" id="comment" cols="20" rows="5" class="form-control"><?php if(isset($comment)) echo $comment ?></textarea>
             <br>
-            <button type="submit" class="btn btn-success">Sent</button>
+            <button type="submit" class="btn btn-success">Send</button>
         </form>
         <div class="movie_comments">
             <?php foreach ($comments as $comment): ?>
@@ -133,11 +132,9 @@
         <h3>Recommandations</h3>
         <span>Here are some recommandations</span>
         <div class="posters">
-            <?php for ($i=0; $i <= 3; $i++) :
-                    $reco_path = $recommandation->results[$i]->poster_path;
-                    $poster = "http://image.tmdb.org/t/p/w300/$reco_path"; ?>
+            <?php for ($i=0; $i <= 3; $i++) : ?>
                 <div class="poster">
-                    <img  src="<?= $poster ?>" alt="Recommandation poster">
+                    <img  src="<?= $recommandations[$i] ?>" alt="Recommandation poster">
                 </div>
             <?php endfor; ?>
         </div>

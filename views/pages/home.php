@@ -4,7 +4,7 @@
 <body>
     <header>
         <div class="movin">
-            <a href="<?= URL ?>home">Move'In</a>
+            <a href="<?= URL ?>home">Mov'In</a>
         </div>
     </header>
 
