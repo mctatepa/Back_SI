@@ -64,9 +64,11 @@ form {
 .text {
     width: 55%;
     height: 35px;
-    font-size: 3em;
+    font-size: 4em;
     text-align: center;
-    font-family: STHeitiSC-Light;
+    text-transform: uppercase;
+    font-family: roboto;
+    font-weight: 700;
     color: black;
     letter-spacing: 0.01px;
 }
