@@ -3,9 +3,6 @@ include ('../allocine/PHP/allocine.class.php');
 $tmdb = $_GET['id']; 
 $movie = $_GET["movie_name"];
 
-echo '<pre>';
-print_r($tmdb);
-echo '</pre>';
 //
 // REQUEST 2 TMDB 2
 //
@@ -46,9 +43,6 @@ else{
 
 $Imdb_Id = $result_tmdb->imdb_id;
 
-echo '<pre>';
-print_r($Imdb_Id);
-echo '</pre>';
 
 
 //
@@ -144,16 +138,6 @@ $Actors = $result_ratings->body->Actors;
 $Date = $result_ratings->body->Released;
 $Genres = $result_ratings->body->Genre;
 
-echo '<pre>';
-print_r($result_ratings);
-echo '</pre>';
-echo '<pre>';
-print_r($result_tmdb);
-echo '</pre>';
-
-echo '<pre>';
-print_r($average_grade);
-echo '</pre>'; 
 
 
 include '../views/pages/movie.php';
