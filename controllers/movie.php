@@ -146,11 +146,15 @@ if (empty($result_ratings->body->Ratings[0])) {
 }else{
     $imdb_grade = ((int) filter_var($result_ratings->body->Ratings[0]->Value, FILTER_SANITIZE_NUMBER_INT)/1000);
 }
-if (empty($result_ratings->body->Ratings[0])) {
+if (empty($result_ratings->result)) {
     $allocine_grade  = 0;
 }else{
     $allocine_grade = $result_allocine->feed->movie[0]->statistics->pressRating + $result_allocine->feed->movie[0]->statistics->userRating;
 }
+
+echo '<pre>';
+print_r($result_ratings);
+echo '</pre>';
 
 $Grades = array(
     0 => $imdb_grade,
