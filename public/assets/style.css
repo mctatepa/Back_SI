@@ -68,9 +68,9 @@ form {
     font-size: 4em;
     text-align: center;
     text-transform: uppercase;
-    font-family: roboto;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    color: black;
+    color: rgb(54, 20, 20);
     letter-spacing: 0.01px;
 }
 
