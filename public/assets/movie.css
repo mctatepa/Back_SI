@@ -1,0 +1,344 @@
+body{
+    background: #F4F4F4;
+    margin: 0px;
+}
+
+/** MOVIE DETAILS **/
+
+.movie_details{
+    background: white;
+    width: 85vw;
+    height: 70vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10%;
+}
+
+.movie_details .details{
+    width: 62%;
+    margin-left: 3%
+}
+
+/* Poster */
+
+.movie_details img{
+    width: 28vw;
+}
+
+/* Title */
+
+.movie_details .details .title{
+    width: 100%;
+    height: 8%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.movie_details .details .title h2{
+    margin: 0;
+    font-family: Raleway-Medium;
+    font-weight: lighter;
+    font-size: 47px;
+    color: #333232;
+}
+
+.movie_details .details .title span{
+    font-family: STHeitiSC-Light;
+    font-weight: lighter;
+    font-size: 22px;
+    color: #333232;
+    letter-spacing: 0.01px;
+}
+
+/* Genders */
+
+.movie_details .details .gender{
+    width: 100%;
+    height: 5%;
+    margin-top: 2%;
+    display: flex;
+}
+
+.movie_details .details .gender .gender_style{
+    background: rgb(65, 47, 57);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5% 0 1.5%;
+    margin-right: 2%;
+}
+
+.movie_details .details .gender .gender_style span{
+    font-family: STHeitiSC-Light;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0.01px;
+}
+
+/* Synopsis */
+
+.movie_details .details .synopsis{
+    width: 100%;
+    height: 35%;
+    margin-top: 6%;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie_details .details .synopsis h3{
+    font-family: STHeitiSC-Light;
+    font-size: 37px;
+    color: #333232;;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.movie_details .details .synopsis p{
+    font-family: Raleway-Medium;
+    font-size: 18px;
+    color: #333232;;
+    letter-spacing: 0;
+    line-height: 27px;
+    padding-top: 2%;
+}
+
+/* Cast */
+
+.movie_details .details .cast{
+    width: 100%;
+    height: 28%;
+    margin-top: 6%;
+    display: flex;
+    flex-direction: row;
+}
+
+.movie_details .details .cast .actors{
+    width: 25%;
+    height: 100%;
+    margin-right: 20%;
+}
+
+.movie_details .details .cast h3{
+    font-family: STHeitiSC-Light;
+    font-size: 37px;
+    color: #333232;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.movie_details .details .cast .actor_list{
+    width: 100%;
+    height: 70%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8%;
+}
+
+.movie_details .details .cast .actor_list span{
+    margin-bottom: 4%;
+    font-family: Raleway-Medium;
+    font-size: 18px;
+    color: #333232;
+    line-height: 27px;
+}
+
+.movie_details .details .cast .director{
+    width: 35%;
+    height: 100%;
+}
+
+.movie_details .details .cast .director h3{
+    margin-bottom: 8%;
+}
+
+.movie_details .details .cast .director span{
+    font-family: Raleway-Medium;
+    font-size: 18px;
+    color: #333232;
+}
+
+/** RATING AND LOCATIONS **/
+
+.rating_location{
+    width: 85vw;
+    height: 35vh;
+    margin: 3% auto;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Ratings */
+
+.rating_location .ratings{
+    width: 55%;
+    background: white;
+    padding: 2% 0 2% 1%;
+    display: flex;
+    flex-direction: row;
+}
+
+.rating_location .ratings .average{
+    width: 35%;
+    height: 100%;
+    border-right: 2px solid black;
+}
+
+.rating_location .ratings .average h3{
+    font-family: STHeitiSC-Light;
+    font-size: 37px;
+    color: #333232;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.rating_location .ratings .average .average_score{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rating_location .ratings .average .average_score span{
+    font-family: Raleway-Medium;
+    font-size: 40px;
+    color: #191818;
+    letter-spacing: 0.01px;
+    margin: 0 auto;
+}
+
+.rating_location .ratings .rating_detail{
+    width: 45%;
+    height: 100%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.rating_location .ratings .rating_detail .rating_row{
+    width: 100%;
+    height: 15%;
+    border-radius: 10px;
+    padding-left: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.rating_location .ratings .rating_detail .rating_row .logo img{
+    width: 70%;
+    margin-top: 10%;
+}
+
+.rating_location .ratings .rating_detail .rating_row span{
+    font-family: Raleway-Medium;
+    font-size: 16px;
+    color: white;
+    line-height: 27px;
+    margin-left: 2%;
+}
+
+.rating_location .ratings .rating_detail .rating_row span.score{
+    margin-left: 4%;
+}
+
+.rating_location .ratings .rating_detail .row1{
+    background: #ECB600;
+}
+
+.rating_location .ratings .rating_detail .row2{
+    background: rgb(41, 39, 33);
+}
+
+
+.rating_location .ratings .rating_detail .row3{
+    background: #FFD700;
+}
+
+.rating_location .ratings .rating_detail .row4{
+    background: rgb(126, 125, 124);
+}
+
+/* Locations */
+
+.rating_location .location{
+    width: 41%;
+    margin-left: 4%;
+    padding: 2% 0 2% 1%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.rating_location .location h3{
+    font-family: STHeitiSC-Light;
+    font-size: 37px;
+    color: #333232;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.rating_location .location .locations{
+    width: 80%;
+    height: 100%;
+    margin-top: 8%;
+    margin-left: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.rating_location .location .locations_name{
+    width: 80%;
+    height: 21%;
+    border-radius: 10px;
+    padding-left: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: rgb(65, 47, 57);
+    color: white;
+}
+
+/** COMMENTS **/
+
+.comments{
+    width: 85vw;
+    height: 100vh;
+    margin: 3% auto;
+    display: flex;
+    flex-direction: column;
+    background: white;
+}
+
+.comments h3{
+    font-family: STHeitiSC-Light;
+    font-size: 37px;
+    color: #333232;
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 2% 0 2% 1%;
+}
+
+.comments form{
+    width: 100%;
+    height: 35%;
+    background: grey;
+    padding: 0% 2%;
+}
+
+.comments form .text{
+    border-radius: 5px;
+    border: 1px;
+    padding: 0.5%;
+}
+
+.comments form label{
+    margin-top: 1%;
+}

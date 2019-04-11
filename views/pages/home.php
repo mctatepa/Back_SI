@@ -29,18 +29,36 @@
             $movie_id += 1;
             $path = $_results->poster_path;
             $title = $_results->title;
-            $overview = $_results->overview;
-            $url_image = "http://image.tmdb.org/t/p/w300/$path";  
+            if (!empty($_results->overview)) {
+                $overview = $_results->overview;
+               }
+               else{
+                 $overview = "Plus d'info sur la page";
+               }
+               if (!empty($path)) {
+                $url_image = "http://image.tmdb.org/t/p/w300/$path";
+               }
+            else {
+                $url_image = "./public/assets/images/poster_placeholder.png";
+            }
         ?>
         <div class="movies-infos">
-            <img src=<?=$url_image?> alt="what">
+            <img class="poster" src=<?=$url_image?> alt="what">
             
             <div class="infos">
+<<<<<<< HEAD
                 <?php $title_url = urlencode($title);
                 $movie_url = "movie&movie_name=$title_url&id=$tmdbId[$movie_id]";
                 ?>
                 <div><?= $title ?></div>
                 <div><?= $overview ?></div>
+=======
+            <?php $title_url = urlencode($title);
+            $movie_url = "movie&movie_name=$title_url&id=$tmdbId[$movie_id]";
+            ?>
+                <h2 class="title"><?= $title ?></h2>
+                <div class="overview"><?= $overview ?></div>
+>>>>>>> db6fbc935dc3cc27d091b08392b8ab703c16f16d
                 <a href=<?= $movie_url ?>>test</a>
             </div>
         </div>
