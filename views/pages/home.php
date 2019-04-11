@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="see-button">
-                    <a href=<?= $movie_url ?> class="see-more">See more</a>
+                    <a href=<?= $movie_url ?> class="see-more">Discover</a>
                 </div>
             </div>
 
