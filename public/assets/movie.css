@@ -306,7 +306,7 @@ header .movin a{
     margin-left: 8%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .rating_location .location .locations_name{

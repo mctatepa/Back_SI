@@ -31,7 +31,7 @@
             </div>
             <div class="cast">
                 <div class="actors">
-                    <h3>Actors</h3>
+                    <h3>Casting</h3>
                     <div class="actor_list">
                             <span><?= $Actors ?></span>
                     </div>
@@ -117,7 +117,7 @@
             <br>
             <textarea name="comment" id="comment" cols="20" rows="5" class="form-control"><?php if(isset($comment)) echo $comment ?></textarea>
             <br>
-            <button type="submit" class="btn btn-success">Envoyer</button>
+            <button type="submit" class="btn btn-success">Sent</button>
         </form>
         <div class="movie_comments">
             <?php foreach ($comments as $comment): ?>
